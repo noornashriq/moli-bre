@@ -1,0 +1,21 @@
+{
+  "name": "moli-bre",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "serverless offline start --reloadHandler",
+    "test:watch": "npm run test -- --watchAll --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.33.0",
+    "serverless-offline": "^12.0.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.379.1",
+    "@aws-sdk/lib-dynamodb": "^3.379.1"
+  }
+}
