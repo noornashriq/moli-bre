@@ -1,5 +1,5 @@
-import * as functions from "./functions/index.js";
 import { getFunctionConfig } from "./rule-config.js";
+import * as functions from "/opt/lib/moli-bre-rules/index.js";
 
 export default async (functionName, payload, configuration) => {
   let config = configuration;

@@ -1,11 +1,12 @@
 {
-  "name": "moli-bre",
+  "name": "@moli-bre/engine",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "serverless offline start --reloadHandler",
-    "test:watch": "npm run test -- --watchAll --verbose"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

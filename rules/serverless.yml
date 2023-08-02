@@ -1,0 +1,16 @@
+service: moli-bre-rules
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  architecture: x86_64
+  runtime: nodejs18.x
+  region: ap-southeast-1
+
+  deploymentBucket:
+    name: moli-deployment
+
+layers:
+  moli-business-rules:
+    path: src
+    retain: true

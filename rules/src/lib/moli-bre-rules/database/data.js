@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     // AgeRange: PASS
     // HasCTOS: PASS

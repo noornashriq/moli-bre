@@ -1,0 +1,39 @@
+service: moli-bre-engine
+frameworkVersion: "3"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  architecture: x86_64
+  runtime: nodejs18.x
+  region: ap-southeast-1
+
+  deploymentBucket:
+    name: moli-deployment
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DeleteItem
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:UpdateItem
+          Resource:
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/test-moli-rule-config
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/test-moli-rule-config/index*
+
+functions:
+  EventConsumer:
+    handler: src/event-consumer.handler
+    layers:
+      - arn:aws:lambda:ap-southeast-1:193980408680:layer:moli-business-rules:4
+    events:
+      - http:
+          method: ANY
+          path: /event/{path+}
